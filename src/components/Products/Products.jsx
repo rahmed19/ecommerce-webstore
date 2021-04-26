@@ -1,5 +1,7 @@
 import React from 'react'
-import Grid from '@material-ui/core'
+import { Grid } from '@material-ui/core'
+
+import Product from './Product/Product'
 
 const products = [
     { id: 1, name: 'Shoes', description: 'Running Shoes.', price: '$5.00' },
