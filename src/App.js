@@ -1,6 +1,5 @@
 import React from 'react'
-// import Navbar from './components/Navbar/Navbar'
-// import Products from './components/Products/Products'
+import { commerce } from './lib/commerce'
 
 import { Navbar, Products } from './components'
 
