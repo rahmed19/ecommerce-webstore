@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createContext } from 'react'
 import { commerce } from './lib/commerce'
 import { Navbar, Products } from './components'
+
 
 export default function () {
     const [products, setProducts] = useState([])
@@ -18,7 +19,7 @@ export default function () {
     }
 
     async function handleAddToCart(productId, quantity) {
-        const response = await commerce.cart.add(productId, quantity)
+        const item = await commerce.cart.add(productId, quantity)
         setCart(item.cart)
     }
 
@@ -32,7 +33,7 @@ export default function () {
     return (
         <div>
             <Navbar />
-            <Products products={products} onAddToCard={handleAddToCart} />
+            <Products products={products} onAddToCart={handleAddToCart} />
         </div>
     )
 }

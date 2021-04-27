@@ -5,6 +5,7 @@ import Product from './Product/Product'
 import useStyles from './styles'
 
 export default function Products({ products, onAddToCart }) {
+    
     const classes = useStyles()
     return (
         <main className={classes.content}>
