@@ -7,8 +7,6 @@ export default function Cart({ cart }) {
 
     const isEmpty = !cart.line_items.length
 
-    console.log(cart.line_items + "from cart")
-
     function EmptyCart() {
         return (
             <Typography variant="subtitle1">You have no items in your shopping cart. Start adding some!</Typography>
@@ -29,7 +27,7 @@ export default function Cart({ cart }) {
                 </Grid>
                 <div className={classes.cardDetails}>
                     <Typography variant="h4">
-                        Subtotal: {cart.subtotal.formattet_width_symbol}
+                        Subtotal: {cart.subtotal.formatted_with_symbol}
                     </Typography>
                     <div>
                         <Button className={classes.emptyButton} size="large" type="button" variant="contained" color="secondary">
