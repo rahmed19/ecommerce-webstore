@@ -1,9 +1,9 @@
-import React, { useState, useEffect, createContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { commerce } from './lib/commerce'
 import { Navbar, Products } from './components'
 
 
-export default function () {
+export default function App() {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState({})
 
@@ -27,8 +27,6 @@ export default function () {
         fetchProducts()
         fetchCart()
     }, [])
-
-    console.log(cart)
 
     return (
         <div>
