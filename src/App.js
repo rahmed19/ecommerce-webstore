@@ -27,12 +27,12 @@ export default function App() {
         fetchProducts()
         fetchCart()
     }, [])
-
+    console.log(cart.line_items + " from app page")
     return (
         <div>
             <Navbar totalItems={cart.total_items} />
             {/* <Products products={products} onAddToCart={handleAddToCart} /> */}
-            <Cart cart={cart} />
+            {cart.line_items ? <Cart cart={cart} /> : null}
         </div>
     )
 }
