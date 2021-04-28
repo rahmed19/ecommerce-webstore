@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { commerce } from './lib/commerce'
-import { Navbar, Products } from './components'
+import { Navbar, Products, Cart } from './components'
 
 
 export default function App() {
@@ -30,8 +30,9 @@ export default function App() {
 
     return (
         <div>
-            <Navbar />
-            <Products products={products} onAddToCart={handleAddToCart} />
+            <Navbar totalItems={cart.total_items} />
+            {/* <Products products={products} onAddToCart={handleAddToCart} /> */}
+            <Cart cart={cart} />
         </div>
     )
 }
