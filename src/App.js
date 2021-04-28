@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { commerce } from './lib/commerce'
 import { Navbar, Products, Cart } from './components'
-import { LocalDining } from '@material-ui/icons'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 export default function App() {
@@ -30,10 +30,21 @@ export default function App() {
     }, [])
 
     return (
-        <div>
-            <Navbar totalItems={cart.total_items} />
-            {/* <Products products={products} onAddToCart={handleAddToCart} /> */}
-            {cart.line_items ? <Cart cart={cart} /> : <h1 color="black">Loading...</h1>}
-        </div>
+        <Router>
+            <div>
+                <Navbar totalItems={cart.total_items} />
+                <Switch>
+                    <Route exact path="/">
+                        <Products products={products} onAddToCart={handleAddToCart} />
+                    </Route>
+                    <Route exact path="/cart">
+                        {cart.line_items ? <Cart cart={cart} /> : <h1 color="black">Loading...</h1>}
+                    </Route>
+
+                </Switch>
+            </div>
+
+        </Router>
+
     )
 }
