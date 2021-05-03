@@ -67,7 +67,7 @@ export default function App() {
                             : <h1 color="black">Loading...</h1>}
                     </Route>
                     <Route exact path="/checkout">
-                        <Checkout />
+                        <Checkout cart={cart} />
                     </Route>
 
                 </Switch>
