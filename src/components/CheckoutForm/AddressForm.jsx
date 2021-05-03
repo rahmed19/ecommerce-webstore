@@ -14,6 +14,8 @@ export default function AddressForm({ checkoutToken }) {
     const [shippingOption, setShippingOption] = useState([])
     const methods = useForm()
 
+    const countries = Object.entries(shippingCountries).map(([code, name]) => ({ id: code, label: name }))
+
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
         setShippingCountries(countries)
@@ -39,11 +41,11 @@ export default function AddressForm({ checkoutToken }) {
                         <Grid item xs={2} sm={6}>
                             <InputLabel>Shipping Country</InputLabel>
                             <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)} >
-
-                                {Object.entries(shippingCountries).map(([code, name]{id: code, label: name })}
-                                {/* <MenuItem key={ } value={ }>
-                                    Select me
-                                </MenuItem> */}
+                                {countries.map((country) => (
+                                    <MenuItem key={country.id} value={country.id}>
+                                        {country.label}
+                                    </MenuItem>
+                                ))}
                             </Select>
                         </Grid>
                         {/* <Grid item xs={2} sm={6}>
