@@ -47,7 +47,7 @@ export default function Checkout({ cart }) {
 
 
     const Form = () => (
-        activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm />
+        activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> : <PaymentForm checkoutToken={checkoutToken} backStep={backStep} />
     )
 
     return (
