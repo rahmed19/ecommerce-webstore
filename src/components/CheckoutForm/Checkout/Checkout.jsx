@@ -48,7 +48,7 @@ export default function Checkout({ cart, order, onCaptureCheckout, error }) {
 
     const Form = () => (
         activeStep === 0 ? <AddressForm checkoutToken={checkoutToken} next={next} /> :
-            <PaymentForm checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} />
+            <PaymentForm checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} shippingData={shippingData} />
     )
 
     return (
