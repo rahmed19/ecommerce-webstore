@@ -22,6 +22,7 @@ export default function AddressForm({ checkoutToken, next }) {
     const fetchShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId)
         setShippingCountries(countries)
+        console.log(countries)
         setShippingCountry('CA')
     }
 

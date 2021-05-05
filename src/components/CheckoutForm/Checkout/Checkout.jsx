@@ -4,6 +4,7 @@ import AddressForm from '../AddressForm'
 import PaymentForm from '../PaymentForm'
 import { commerce } from '../../../lib/commerce'
 import useStyles from './styles'
+import { ContactSupportOutlined } from '@material-ui/icons'
 
 const steps = ['Shipping address', 'Payment details']
 
@@ -24,6 +25,7 @@ export default function Checkout({ cart, order, onCaptureCheckout, error }) {
             }
         }
         generateToken()
+        console.log(cart.total_items)
     }, [cart])
 
     function nextStep() {

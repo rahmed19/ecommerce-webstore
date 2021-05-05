@@ -54,10 +54,14 @@ export default function App() {
         try {
             const incomingOrder = await commerce.checkout.capture(checkoutId, newOrder)
             setOrder(incomingOrder)
+            console.log(incomingOrder)
             refreshCart()
+            console.log('cart should be refreshed here!')
+            console.log(cart)
 
         } catch (error) {
             setErrorMessage(error.data.error.message)
+            console.log(errorMessage)
         }
     }
 
