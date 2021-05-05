@@ -129,7 +129,7 @@ export default function PaymentForm({ checkoutToken, shippingData, backStep, onC
             <Review checkoutToken={checkoutToken} />
             <Divider />
             <Typography variant="h6" gutterBottom style={{ margin: '20px 0' }}>
-                Payment Method
+                Payment Method <br />
             </Typography>
             <Elements stripe={stripePromise}>
                 <ElementsConsumer>
@@ -147,6 +147,10 @@ export default function PaymentForm({ checkoutToken, shippingData, backStep, onC
                     )}
                 </ElementsConsumer>
             </Elements>
+            <Typography variant="subtitle2" gutterBottom style={{ margin: '20px 0' }}>
+                Use the Stripe test credit card number to complete your demo transaction.  <br />
+                Card number: 4242-4242-4242-4242, CVC: Any 3 digits, Date: Any future date.
+            </Typography>
         </>
     )
 }
