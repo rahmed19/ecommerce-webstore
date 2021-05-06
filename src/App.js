@@ -98,7 +98,9 @@ export default function App() {
                     </Route>
 
                 </Switch>
-
+                <Footer>
+                    BismiAllah
+                </Footer>
             </div>
 
         </Router>
