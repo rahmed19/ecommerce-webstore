@@ -8,7 +8,8 @@ import Link from '@material-ui/core/Link'
 export default function Footer() {
     return (
         <>
-            <Box
+            <footer className="sticky-footer">
+                <Box 
                 fontFamily="Arial"
                 textAlign="center"
                 px={{ xs: 1, sm: 3 }}
@@ -23,17 +24,19 @@ export default function Footer() {
                             <Link href="https://commercejs.com/" target = "new" color="inherit">Commerce.js</Link>, 
                             
                             this demo ReactJS project was built largely based on this&nbsp;
-                                <Link href="https://www.youtube.com/watch?v=377AQ0y6LPA" target="new" color="inherit">Youtube tutorial.</Link>
+                                <Link href="https://www.youtube.com/watch?v=377AQ0y6LPA" target="new" color="inherit">Youtube tutorial</Link>
+                                &nbsp;by <Link href="https://www.youtube.com/channel/UCmXmlB4-HJytD7wek0Uo97A" target="new" color="inherit">JavaScript Mastery.</Link>
                             </Box>
                             <br /><br />
                             <Box fontWeight="bold">
                                 Find out more about me and my work @&nbsp;
-                                <Link href="https://rayahmed.ca" target="new" color="inherit">rayahmed.ca</Link>
+                                <Link href="https://rayahmed.ca" target="new" color="inherit">rayahmed.ca</Link> 
                             </Box>
                         </Grid>
                     </Grid>
                 </Container>
             </Box>
+            </footer>
         </>
     )
 }

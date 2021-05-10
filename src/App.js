@@ -56,8 +56,6 @@ export default function App() {
             setOrder(incomingOrder)
             console.log(incomingOrder)
             refreshCart()
-            console.log('cart should be refreshed here!')
-            console.log(cart)
 
         } catch (error) {
             setErrorMessage(error.data.error.message)
@@ -71,37 +69,40 @@ export default function App() {
     }, [])
 
     return (
-        <Router>
-            <div>
-                <Navbar totalItems={cart.total_items} />
-                <Switch>
-                    <Route exact path="/">
-                        <Products products={products} onAddToCart={handleAddToCart} />
-                    </Route>
-                    <Route exact path="/cart">
-                        {cart.line_items ?
-                            <Cart cart={cart}
-                                handleUpdateCartQuantity={handleUpdateCartQuantity}
-                                handleRemoveFromCart={handleRemoveFromCart}
-                                handleEmptyCart={handleEmptyCart}
+        <>
+            <Router>
+                <div>
+                    <Navbar totalItems={cart.total_items} />
+                    <Switch>
+                        <Route exact path="/">
+                            <Products products={products} onAddToCart={handleAddToCart} />
+                            {products.length > 1 && <Footer />}
+                        </Route>
+                        <Route exact path="/cart">
+                            {cart.line_items ?
+                                <Cart cart={cart}
+                                    handleUpdateCartQuantity={handleUpdateCartQuantity}
+                                    handleRemoveFromCart={handleRemoveFromCart}
+                                    handleEmptyCart={handleEmptyCart}
 
+                                />
+                                : <h1 color="black">Loading...</h1>}
+                        </Route>
+                        <Route exact path="/checkout">
+                            <Checkout
+                                cart={cart}
+                                order={order}
+                                onCaptureCheckout={handleCaptureCheckout}
+                                error={errorMessage}
                             />
-                            : <h1 color="black">Loading...</h1>}
-                    </Route>
-                    <Route exact path="/checkout">
-                        <Checkout
-                            cart={cart}
-                            order={order}
-                            onCaptureCheckout={handleCaptureCheckout}
-                            error={errorMessage}
-                        />
-                    </Route>
+                        </Route>
 
-                </Switch>
-                {products.length > 1 && <Footer />}
-            </div>
+                    </Switch>
 
-        </Router>
+                </div>
 
+            </Router>
+
+        </>
     )
 }

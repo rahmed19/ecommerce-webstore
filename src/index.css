@@ -1,0 +1,16 @@
+html {
+    height: 100vh;
+}
+body{
+    min-height: 100vh;
+  }
+
+.sticky-footer {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    min-width: 99%;
+    bottom: 0;
+    top: 100%;
+}
