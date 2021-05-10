@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { commerce } from './lib/commerce'
-import { Navbar, Products, Cart, Checkout, FooterContainer } from './components'
+import { Navbar, Products, Cart, Checkout, Footer } from './components'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
@@ -98,9 +98,7 @@ export default function App() {
                     </Route>
 
                 </Switch>
-                <FooterContainer>
-
-                </FooterContainer>
+                {products.length > 1 && <Footer />}
             </div>
 
         </Router>
